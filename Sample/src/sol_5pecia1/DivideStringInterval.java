@@ -46,4 +46,12 @@ public class DivideStringInterval {
 		return divideStringInterval(pureString, dividingString, dividingInterval);
 	}
 	
+	public static String append(String purposeString, String dividingString, int dividingInterval, String appendString){
+		return makePureNDivideStringInterval(purposeString + appendString, dividingString, dividingInterval);
+	}
+	
+	public static String deleteEnd(String purposeString, String dividingString, int dividingInterval){
+		String pureString = makePureString(purposeString, dividingString);
+		return divideStringInterval(pureString.substring(0, pureString.length() - 1), dividingString, dividingInterval);
+	}
 }

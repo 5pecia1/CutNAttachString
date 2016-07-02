@@ -18,5 +18,12 @@ public class Main {
 		
 		String dividedPureString = DivideStringInterval.makePureNDivideStringInterval(dividedString, dot, 5);
 		System.out.println("divide dividedString(interval 5) : " + dividedPureString);
+		
+		String appendString = "0";
+		String appendedString = DivideStringInterval.append(dividedPureString, dot, 5, appendString);
+		System.out.println("append string(interval 5) : " + appendedString);
+		
+		String deletedString = DivideStringInterval.deleteEnd(appendedString, dot, 5);
+		System.out.println("delete string(interval 5) : " + deletedString);
 	}
 }
