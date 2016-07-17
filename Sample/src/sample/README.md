@@ -1,4 +1,4 @@
-## sample file result
+## result running Main.java
 
 <pre><code>
 default string : 192.168.001.001
