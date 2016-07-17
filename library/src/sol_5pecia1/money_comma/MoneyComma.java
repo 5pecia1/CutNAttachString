@@ -6,6 +6,11 @@ import sol_5pecia1.CutNAttachStringInterval;
 import sol_5pecia1.money_comma.exception.NotMoneyException;
 import sol_5pecia1.money_comma.exception.NotValidNumberException;
 
+/**
+ * 
+ * @author 5pecia1
+ *
+ */
 public class MoneyComma {
 	private final static String COMMA = ",";
 	private final static String DOT = ".";
@@ -27,11 +32,28 @@ public class MoneyComma {
 		}
 	}
 	
+	/**
+	 * 
+	 * @author 5pecia1
+	 *
+	 * @param money
+	 * @return
+	 * @throws NotMoneyException
+	 */
 	public static String makePure(String money) throws NotMoneyException{
 		checkMoney(money);
 		return CutNAttachStringInterval.makePureString(money, COMMA);
 	}
 	
+	/**
+	 * 
+	 * @author 5pecia1
+	 *
+	 * @param money
+	 * @param divideUnit
+	 * @return
+	 * @throws NotMoneyException
+	 */
 	public static String divide(String money, int divideUnit) throws NotMoneyException{
 		checkMoney(money);
 		String[] splitDot = money.split("[" + DOT + "]");
@@ -39,6 +61,17 @@ public class MoneyComma {
 		return dividedMoney + ((splitDot.length == 2)? DOT + splitDot[1] : "");
 	}
 	
+	/**
+	 * 
+	 * @author 5pecia1
+	 *
+	 * @param money
+	 * @param divideUnit
+	 * @param appendNumber
+	 * @return
+	 * @throws NotMoneyException
+	 * @throws NotValidNumberException
+	 */
 	public static String append(String money, int divideUnit, String appendNumber) throws NotMoneyException, NotValidNumberException{
 		checkMoney(money);
 		checkAppendNumber(appendNumber);

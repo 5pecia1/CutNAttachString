@@ -2,8 +2,7 @@ package sample;
 
 import sol_5pecia1.CutNAttachStringInterval;
 import sol_5pecia1.money_comma.MoneyComma;
-import sol_5pecia1.money_comma.exception.NotMoneyException;
-import sol_5pecia1.money_comma.exception.NotValidNumberException;
+import sol_5pecia1.money_comma.exception.*;
 
 //TODO make detail test
 public class Main {
