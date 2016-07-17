@@ -6,32 +6,32 @@ public class CutNAttachStringInterval {
 		
 	}
 	
-	public static String makePureString(String purposeString, String dividingString){
-		return purposeString.replace(dividingString, "");
+	public static String makePureString(String purposeString, String divideString){
+		return purposeString.replace(divideString, "");
 	}
 	
-	public static String divideString(String purposeString, String dividingString, int dividingInterval){
+	public static String divideString(String purposeString, String divideString, int divideInterval){
 		int pureStringLength = purposeString.length();
 		StringBuilder resultString = new StringBuilder();
 		
-		if(pureStringLength > dividingInterval){
-			int stringHeadLength = pureStringLength % dividingInterval;
-			int insertingCount = pureStringLength / dividingInterval - 1;
+		if(pureStringLength > divideInterval){
+			int stringHeadLength = pureStringLength % divideInterval;
+			int insertingCount = pureStringLength / divideInterval - 1;
 			
 			if(stringHeadLength  != 0){
 				String head = purposeString.substring(0, stringHeadLength);
 				String tail = purposeString.substring(stringHeadLength);
-				resultString.append(head + dividingString);
+				resultString.append(head + divideString);
 				purposeString = tail;
 			}
 			
 			int i = 0;
 			for(;i < insertingCount; i++){
-				String head = purposeString.substring(i * dividingInterval, i * dividingInterval + dividingInterval);
-				resultString.append(head + dividingString);
+				int start = i * divideInterval;
+				String head = purposeString.substring(start, start + divideInterval);
+				resultString.append(head + divideString);
 			}
-			
-			String last = purposeString.substring(i * dividingInterval);
+			String last = purposeString.substring(i * divideInterval);
 			resultString.append(last);
 			
 		} else{
@@ -41,17 +41,17 @@ public class CutNAttachStringInterval {
 		return resultString.toString();
 	}
 	
-	public static String makePureNDivideString(String purposeString, String dividingString, int dividingInterval){
-		String pureString = makePureString(purposeString, dividingString);
-		return divideString(pureString, dividingString, dividingInterval);
+	public static String makePureNDivideString(String purposeString, String divideString, int divideInterval){
+		String pureString = makePureString(purposeString, divideString);
+		return divideString(pureString, divideString, divideInterval);
 	}
 	
-	public static String append(String purposeString, String dividingString, int dividingInterval, String appendString){
-		return makePureNDivideString(purposeString + appendString, dividingString, dividingInterval);
+	public static String append(String purposeString, String divideString, int divideInterval, String appendString){
+		return makePureNDivideString(purposeString + appendString, divideString, divideInterval);
 	}
 	
-	public static String deleteEnd(String purposeString, String dividingString, int dividingInterval){
-		String pureString = makePureString(purposeString, dividingString);
-		return divideString(pureString.substring(0, pureString.length() - 1), dividingString, dividingInterval);
+	public static String deleteEnd(String purposeString, String divideString, int divideInterval){
+		String pureString = makePureString(purposeString, divideString);
+		return divideString(pureString.substring(0, pureString.length() - 1), divideString, divideInterval);
 	}
 }
