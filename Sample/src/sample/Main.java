@@ -1,6 +1,9 @@
 package sample;
 
 import sol_5pecia1.*;
+import sol_5pecia1.money_comma.MoneyComma;
+import sol_5pecia1.money_comma.exception.NotMoneyException;
+import sol_5pecia1.money_comma.exception.NotValidNumberException;
 
 //TODO make detail test
 public class Main {
@@ -45,21 +48,31 @@ public class Main {
 		
 		System.out.println("defualt money : " + defualtMoney);
 		
-		String pureMoney = MoneyComma.makePure(defualtMoney);
-		Double moneyDuble = Double.parseDouble(pureMoney);
-		System.out.println("make type Double : " + (moneyDuble instanceof Double) + " / result : " + moneyDuble);
-		
-		String commaMoney = MoneyComma.divide(pureMoney, 3);
-		System.out.println("pureMoney divide comma : " + commaMoney);
-		
-		String appendMoney = "1";
-		String haveNotDotMoney = "789";
-		System.out.println(commaMoney + " append " + appendMoney + " : " + MoneyComma.append(commaMoney, 3, appendMoney));
-		System.out.println(haveNotDotMoney + " append " + appendMoney + " : " + MoneyComma.append(haveNotDotMoney, 3, appendMoney));
-		
-		String deleteMoney = MoneyComma.deleteEnd(commaMoney, 3);
-		System.out.println(commaMoney + " deleteEnd : " + deleteMoney);
-		System.out.println(deleteMoney + " deleteEnd : " + MoneyComma.deleteEnd(deleteMoney, 3));
-		System.out.println(haveNotDotMoney + " deleteEnd : " + MoneyComma.deleteEnd(haveNotDotMoney, 3));
+		String pureMoney;
+		try {
+			pureMoney = MoneyComma.makePure(defualtMoney);
+			Double moneyDuble = Double.parseDouble(pureMoney);
+			System.out.println("make type Double : " + (moneyDuble instanceof Double) + " / result : " + moneyDuble);
+			
+			String commaMoney = MoneyComma.divide(pureMoney, 3);
+			System.out.println("pureMoney divide comma : " + commaMoney);
+			
+			String appendMoney = "12";
+			String haveNotDotMoney = "789";
+			System.out.println(commaMoney + " append " + appendMoney + " : " + MoneyComma.append(commaMoney, 3, appendMoney));
+			System.out.println(haveNotDotMoney + " append " + appendMoney + " : " + MoneyComma.append(haveNotDotMoney, 3, appendMoney));
+			
+			String deleteMoney = MoneyComma.deleteEnd(commaMoney, 3);
+			System.out.println(commaMoney + " deleteEnd : " + deleteMoney);
+			System.out.println(deleteMoney + " deleteEnd : " + MoneyComma.deleteEnd(deleteMoney, 3));
+			System.out.println(haveNotDotMoney + " deleteEnd : " + MoneyComma.deleteEnd(haveNotDotMoney, 3));
+			
+			String one = "1";
+			System.out.println(one + " deleteEnd : " + MoneyComma.deleteEnd(one, 3));
+		} catch (NotMoneyException e) {
+			e.printStackTrace();
+		} catch (NotValidNumberException e) {
+			e.printStackTrace();
+		}
 	}
 }
