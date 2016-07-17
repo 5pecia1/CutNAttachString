@@ -1,7 +1,6 @@
 # CutNAtttachString
-This library make money comma or other else
-
----
+This library make money comma or anything else
 
 #USAGE
-1. copy and paste library
+1. add library.
+2. reference sample. very simple :)
