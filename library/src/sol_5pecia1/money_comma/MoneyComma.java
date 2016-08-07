@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 import sol_5pecia1.CutNAttachStringInterval;
 import sol_5pecia1.money_comma.exception.NotMoneyException;
-import sol_5pecia1.money_comma.exception.NotValidNumberException;
+import sol_5pecia1.money_comma.exception.InValidNumberException;
 
 /**
  * 
@@ -26,9 +26,9 @@ public class MoneyComma {
 		}
 	}
 	
-	private static void checkAppendNumber(String money) throws NotValidNumberException{
+	private static void checkAppendNumber(String money) throws InValidNumberException{
 		if( !Pattern.matches("[0-9]*", money)){
-			throw new NotValidNumberException();
+			throw new InValidNumberException();
 		}
 	}
 	
@@ -70,9 +70,9 @@ public class MoneyComma {
 	 * @param appendNumber
 	 * @return
 	 * @throws NotMoneyException
-	 * @throws NotValidNumberException
+	 * @throws InValidNumberException
 	 */
-	public static String append(String money, int divideUnit, String appendNumber) throws NotMoneyException, NotValidNumberException{
+	public static String append(String money, int divideUnit, String appendNumber) throws NotMoneyException, InValidNumberException{
 		checkMoney(money);
 		checkAppendNumber(appendNumber);
 		
